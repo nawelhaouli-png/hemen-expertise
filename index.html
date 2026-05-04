@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemen Expertise — Accompagnement Réglementaire Cosmétique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B3A6B;
+    --navy-dark: #122848;
+    --navy-light: #2A4E8A;
+    --terra: #B8572A;
+    --terra-light: #C96B3A;
+    --terra-pale: #E8A87C;
+    --peach: #F5D5C0;
+    --slate: #A9BBCC;
+    --slate-light: #D4E2ED;
+    --white: #FFFFFF;
+    --off-white: #FAFAF8;
+    --light-bg: #F7F4F0;
+    --text-dark: #1A1A1A;
+    --text-mid: #4A4A4A;
+    --text-light: #7A7A7A;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 72px;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(169,187,204,0.25);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 2px 24px rgba(27,58,107,0.08); }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+    text-decoration: none;
+  }
+  .nav-brand { display: flex; flex-direction: column; line-height: 1; }
+  .nav-brand span:first-child {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600; font-size: 17px;
+    color: var(--navy); letter-spacing: 0.04em;
+  }
+  .nav-brand span:last-child {
+    font-size: 9px; letter-spacing: 0.22em;
+    color: var(--terra); text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none; font-size: 14px; font-weight: 400;
+    color: var(--text-mid); letter-spacing: 0.02em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--terra); }
+
+  .nav-cta {
+    background: var(--navy); color: var(--white) !important;
+    padding: 9px 22px; border-radius: 50px;
+    font-weight: 500 !important; font-size: 14px !important;
+    transition: background .2s !important;
+  }
+  .nav-cta:hover { background: var(--terra) !important; color: var(--white) !important; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 5% 60px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-bg-shape {
+    position: absolute; right: -80px; top: -80px;
+    width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, var(--peach) 0%, transparent 65%);
+    opacity: 0.55; pointer-events: none;
+  }
+  .hero-bg-shape2 {
+    position: absolute; left: 35%; bottom: -140px;
+    width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, var(--slate-light) 0%, transparent 65%);
+    opacity: 0.4; pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; padding-right: 60px; }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--peach); color: var(--terra);
+    padding: 6px 16px; border-radius: 50px;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--terra); display: inline-block;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 4.5vw, 60px);
+    font-weight: 700; line-height: 1.12;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  h1 em { font-style: italic; color: var(--terra); }
+
+  .hero-sub {
+    font-size: 17px; color: var(--text-mid);
+    max-width: 440px; line-height: 1.75;
+    margin-bottom: 40px; font-weight: 300;
+  }
+
+  .hero-ctas {
+    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--terra); color: var(--white);
+    padding: 14px 30px; border-radius: 50px;
+    font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: background .2s, transform .15s;
+    box-shadow: 0 4px 20px rgba(184,87,42,0.3);
+  }
+  .btn-primary:hover { background: var(--terra-light); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--navy); font-weight: 500; font-size: 15px;
+    text-decoration: none; border-bottom: 2px solid var(--slate);
+    padding-bottom: 2px; transition: border-color .2s, color .2s;
+  }
+  .btn-secondary:hover { border-color: var(--navy); }
+  .btn-secondary .arrow { transition: transform .2s; }
+  .btn-secondary:hover .arrow { transform: translateX(4px); }
+
+  .hero-visual {
+    position: relative; z-index: 1;
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-card-main {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(169,187,204,0.3);
+    box-shadow: 0 20px 60px rgba(27,58,107,0.1);
+    padding: 40px; width: 100%; max-width: 440px;
+    position: relative;
+  }
+  .hero-card-main::before {
+    content: ''; position: absolute;
+    top: -2px; left: 32px; right: 32px; height: 3px;
+    background: linear-gradient(90deg, var(--terra), var(--terra-pale));
+    border-radius: 0 0 4px 4px;
+  }
+
+  .card-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .card-logo-mini { width: 44px; height: 44px; object-fit: contain; }
+  .card-header-text h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 600; color: var(--navy);
+  }
+  .card-header-text p {
+    font-size: 12px; color: var(--text-light); letter-spacing: 0.08em; text-transform: uppercase;
+  }
+
+  .stat-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-bottom: 24px;
+  }
+  .stat-box {
+    background: var(--light-bg); border-radius: var(--radius-md);
+    padding: 18px 16px; text-align: center;
+  }
+  .stat-box .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px; font-weight: 700;
+    color: var(--navy); line-height: 1;
+  }
+  .stat-box .number span { font-size: 22px; color: var(--terra); }
+  .stat-box .label {
+    font-size: 11px; color: var(--text-light);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  .checklist { list-style: none; }
+  .checklist li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: var(--text-mid);
+    padding: 8px 0; border-bottom: 1px solid rgba(169,187,204,0.2);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .check-icon {
+    flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(184,87,42,0.12); display: flex;
+    align-items: center; justify-content: center; margin-top: 2px;
+  }
+  .check-icon svg { width: 10px; height: 10px; }
+
+  .floating-badge {
+    position: absolute; right: -24px; bottom: 80px;
+    background: var(--navy); color: var(--white);
+    border-radius: var(--radius-md); padding: 12px 16px;
+    font-size: 12px; font-weight: 500;
+    box-shadow: 0 8px 24px rgba(27,58,107,0.25);
+    min-width: 150px;
+  }
+  .floating-badge .fb-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 700;
+    color: var(--terra-pale); line-height: 1;
+  }
+
+  /* ─── STATS BAR ─── */
+  #stats-bar {
+    background: var(--navy);
+    padding: 36px 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .stat-item {
+    text-align: center; padding: 0 20px;
+    border-right: 1px solid rgba(169,187,204,0.2);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-item .big-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px; font-weight: 700;
+    color: var(--terra-pale); line-height: 1;
+  }
+  .stat-item .big-num sup { font-size: 22px; }
+  .stat-item .stat-label {
+    font-size: 12px; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* ─── SECTIONS SHARED ─── */
+  section { padding: 100px 5%; }
+
+  .section-eyebrow {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--terra); margin-bottom: 14px;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 3.5vw, 46px);
+    font-weight: 700; line-height: 1.18; color: var(--navy);
+    margin-bottom: 20px;
+  }
+  h2 em { font-style: italic; color: var(--terra); }
+
+  .section-intro {
+    font-size: 17px; color: var(--text-mid);
+    max-width: 600px; font-weight: 300; margin-bottom: 60px;
+  }
+
+  /* ─── PROBLEM ─── */
+  #problem {
+    background: var(--light-bg);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+
+  .problem-visual {
+    position: relative;
+  }
+  .problem-cards-stack { position: relative; }
+  .p-card {
+    background: var(--white); border-radius: var(--radius-md);
+    border: 1px solid rgba(169,187,204,0.3);
+    padding: 24px; margin-bottom: 16px;
+    display: flex; gap: 16px; align-items: flex-start;
+    transition: transform .2s;
+  }
+  .p-card:hover { transform: translateX(6px); }
+  .p-card-icon {
+    width: 42px; height: 42px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .p-card-icon.navy { background: rgba(27,58,107,0.1); }
+  .p-card-icon.terra { background: rgba(184,87,42,0.1); }
+  .p-card-icon.slate { background: rgba(169,187,204,0.25); }
+  .p-card h4 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .p-card p { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--white); }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .service-card {
+    border-radius: var(--radius-lg); padding: 36px 30px;
+    position: relative; overflow: hidden;
+    transition: transform .25s, box-shadow .25s;
+    cursor: default;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(27,58,107,0.12); }
+
+  .service-card.light {
+    background: var(--light-bg);
+    border: 1px solid rgba(169,187,204,0.25);
+  }
+  .service-card.dark {
+    background: var(--navy);
+  }
+
+  .service-card.featured {
+    background: var(--terra);
+    grid-row: span 1;
+  }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px; font-weight: 700;
+    opacity: 0.08; position: absolute;
+    top: 12px; right: 20px; line-height: 1;
+  }
+  .service-card.light .service-num { color: var(--navy); }
+  .service-card.dark .service-num, .service-card.featured .service-num { color: var(--white); }
+
+  .service-icon {
+    width: 50px; height: 50px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .service-card.light .service-icon { background: var(--white); border: 1px solid rgba(169,187,204,0.3); }
+  .service-card.dark .service-icon { background: rgba(255,255,255,0.1); }
+  .service-card.featured .service-icon { background: rgba(255,255,255,0.2); }
+
+  .service-card h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px; font-weight: 600; margin-bottom: 10px; line-height: 1.3;
+  }
+  .service-card.light h3 { color: var(--navy); }
+  .service-card.dark h3, .service-card.featured h3 { color: var(--white); }
+
+  .service-card p {
+    font-size: 13.5px; line-height: 1.65;
+  }
+  .service-card.light p { color: var(--text-mid); }
+  .service-card.dark p, .service-card.featured p { color: rgba(255,255,255,0.72); }
+
+  .service-tag {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 50px;
+  }
+  .service-card.light .service-tag { background: var(--white); color: var(--navy); border: 1px solid rgba(27,58,107,0.15); }
+  .service-card.dark .service-tag { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+  .service-card.featured .service-tag { background: rgba(255,255,255,0.2); color: var(--white); }
+
+  /* ─── WHY ─── */
+  #why { background: var(--navy); padding: 100px 5%; }
+  #why h2 { color: var(--white); }
+  #why .section-eyebrow { color: var(--terra-pale); }
+  #why .section-intro { color: rgba(255,255,255,0.65); }
+
+  .why-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 2px; background: rgba(169,187,204,0.15);
+    border-radius: var(--radius-lg); overflow: hidden;
+  }
+  .why-item {
+    background: var(--navy-dark); padding: 40px 36px;
+    transition: background .2s;
+  }
+  .why-item:hover { background: rgba(255,255,255,0.04); }
+
+  .why-item .wi-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px; font-weight: 700;
+    color: var(--terra-pale); opacity: 0.35;
+    line-height: 1; margin-bottom: 12px;
+  }
+  .why-item h4 { font-size: 17px; font-weight: 600; color: var(--white); margin-bottom: 10px; }
+  .why-item p { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+
+  /* ─── PROCESS ─── */
+  #process { background: var(--off-white); }
+
+  .process-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; position: relative;
+  }
+  .process-steps::before {
+    content: ''; position: absolute;
+    top: 30px; left: 8%; right: 8%; height: 2px;
+    background: linear-gradient(90deg, var(--terra), var(--slate));
+    z-index: 0;
+  }
+  .process-step {
+    text-align: center; padding: 0 16px; position: relative; z-index: 1;
+  }
+  .step-circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 700;
+    border: 2px solid var(--terra);
+  }
+  .process-step:nth-child(1) .step-circle { background: var(--terra); color: var(--white); }
+  .process-step:nth-child(2) .step-circle { background: var(--white); color: var(--terra); }
+  .process-step:nth-child(3) .step-circle { background: var(--white); color: var(--terra); }
+  .process-step:nth-child(4) .step-circle { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .process-step h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .process-step p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* ─── PRÉSENTATION ─── */
+  #presentation {
+    background: var(--white);
+    text-align: center;
+  }
+  #presentation .section-intro {
+    margin: 0 auto;
+  }
+
+  /* ─── CLIENTS CIBLES ─── */
+  #clients { background: var(--light-bg); }
+  .clients-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .client-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    border: 1px solid rgba(169,187,204,0.3);
+    padding: 40px; display: flex; gap: 24px;
+    align-items: flex-start; transition: transform .2s, box-shadow .2s;
+  }
+  .client-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(27,58,107,0.1); }
+  .client-card.highlight {
+    border-color: var(--terra); border-width: 2px;
+  }
+  .client-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .client-icon.terra { background: rgba(184,87,42,0.1); }
+  .client-icon.navy { background: rgba(27,58,107,0.08); }
+  .client-card h3 { font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+  .client-card p { font-size: 14px; color: var(--text-mid); line-height: 1.65; }
+  .client-card ul {
+    list-style: none; margin-top: 14px;
+  }
+  .client-card ul li {
+    font-size: 13px; color: var(--text-light);
+    padding: 4px 0; display: flex; gap: 8px; align-items: center;
+  }
+  .client-card ul li::before {
+    content: '→'; color: var(--terra); font-size: 12px;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+  }
+
+  .contact-form-wrap {
+    background: var(--light-bg); border-radius: var(--radius-lg);
+    padding: 48px; border: 1px solid rgba(169,187,204,0.25);
+  }
+  .contact-form-wrap h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px; font-weight: 700; color: var(--navy);
+    margin-bottom: 28px;
+  }
+
+  .form-row { margin-bottom: 20px; }
+  .form-row label {
+    display: block; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-mid); margin-bottom: 8px;
+  }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%; padding: 13px 16px;
+    border: 1px solid rgba(169,187,204,0.4);
+    border-radius: var(--radius-sm);
+    background: var(--white); font-family: 'DM Sans', sans-serif;
+    font-size: 15px; color: var(--text-dark);
+    outline: none; transition: border-color .2s;
+  }
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus { border-color: var(--terra); }
+  .form-row textarea { resize: vertical; min-height: 120px; }
+
+  .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .submit-btn {
+    width: 100%; padding: 15px;
+    background: var(--terra); color: var(--white);
+    border: none; border-radius: 50px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: background .2s, transform .15s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--terra-light); transform: translateY(-1px); }
+
+  .contact-info { padding-top: 20px; }
+  .contact-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 700; color: var(--navy);
+    line-height: 1.15; margin-bottom: 20px;
+  }
+  .contact-info p {
+    font-size: 16px; color: var(--text-mid); margin-bottom: 40px;
+    font-weight: 300; line-height: 1.75;
+  }
+  .contact-detail {
+    display: flex; gap: 14px; align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  .cd-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--peach); display: flex;
+    align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .cd-text strong { display: block; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .cd-text span { font-size: 14px; color: var(--text-mid); }
+
+  .promise-box {
+    background: var(--navy); border-radius: var(--radius-md);
+    padding: 24px; margin-top: 36px;
+    display: flex; gap: 16px; align-items: flex-start;
+  }
+  .promise-box p { font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.65; margin: 0; }
+  .promise-box strong { color: var(--terra-pale); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy-dark);
+    padding: 60px 5% 36px;
+  }
+  .footer-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    border-bottom: 1px solid rgba(169,187,204,0.15);
+    padding-bottom: 40px; margin-bottom: 40px;
+  }
+  .footer-brand { max-width: 300px; }
+  .footer-brand .tagline {
+    font-size: 13px; color: rgba(255,255,255,0.5);
+    line-height: 1.65; margin-top: 12px;
+  }
+  .footer-links-col h5 {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(255,255,255,0.4); margin-bottom: 16px;
+  }
+  .footer-links-col a {
+    display: block; font-size: 14px;
+    color: rgba(255,255,255,0.65); text-decoration: none;
+    margin-bottom: 10px; transition: color .2s;
+  }
+  .footer-links-col a:hover { color: var(--terra-pale); }
+  .footer-bottom {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: rgba(255,255,255,0.35);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+  }
+  .fade-up.visible { opacity: 1; transform: none; }
+  .delay-1 { transition-delay: .1s; }
+  .delay-2 { transition-delay: .2s; }
+  .delay-3 { transition-delay: .3s; }
+  .delay-4 { transition-delay: .4s; }
+
+  /* ─── NETWORK DECORATION ─── */
+  .net-deco {
+    position: absolute; pointer-events: none; opacity: 0.06;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <img src="image/logo3.png" alt="Logo Hemen Expertise" style="height: 38px; width: auto; object-fit: contain;">
+    <div class="nav-brand">
+      <span>HEMEN</span>
+      <span>Expertise</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Pourquoi nous</a></li>
+    <li><a href="#process">Notre approche</a></li>
+    <li><a href="#presentation">À propos</a></li>
+    <li><a href="#contact" class="nav-cta">Parlons-en</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <svg class="net-deco" style="right:0;top:200px;width:500px;height:400px" viewBox="0 0 500 400">
+    <circle cx="250" cy="200" r="8" fill="#1B3A6B"/>
+    <circle cx="180" cy="120" r="6" fill="#B8572A"/>
+    <circle cx="340" cy="140" r="6" fill="#1B3A6B"/>
+    <circle cx="150" cy="260" r="5" fill="#A9BBCC"/>
+    <circle cx="380" cy="280" r="7" fill="#B8572A"/>
+    <circle cx="300" cy="320" r="5" fill="#1B3A6B"/>
+    <circle cx="420" cy="180" r="4" fill="#A9BBCC"/>
+    <circle cx="90" cy="200" r="5" fill="#B8572A"/>
+    <line x1="250" y1="200" x2="180" y2="120" stroke="#1B3A6B" stroke-width="1.5"/>
+    <line x1="250" y1="200" x2="340" y2="140" stroke="#1B3A6B" stroke-width="1.5"/>
+    <line x1="250" y1="200" x2="150" y2="260" stroke="#A9BBCC" stroke-width="1"/>
+    <line x1="250" y1="200" x2="380" y2="280" stroke="#B8572A" stroke-width="1.5"/>
+    <line x1="250" y1="200" x2="300" y2="320" stroke="#1B3A6B" stroke-width="1"/>
+    <line x1="340" y1="140" x2="420" y2="180" stroke="#A9BBCC" stroke-width="1"/>
+    <line x1="180" y1="120" x2="90" y2="200" stroke="#B8572A" stroke-width="1"/>
+    <line x1="150" y1="260" x2="90" y2="200" stroke="#A9BBCC" stroke-width="1"/>
+    <line x1="380" y1="280" x2="300" y2="320" stroke="#1B3A6B" stroke-width="1"/>
+  </svg>
+
+  <div class="hero-bg-shape"></div>
+  <div class="hero-bg-shape2"></div>
+
+  <div class="hero-content fade-up">
+    <div class="hero-badge">Réglementation Cosmétique EU</div>
+    <h1>Votre conformité,<br><em>notre expertise.</em></h1>
+    <p class="hero-sub">Nous accompagnons les startups et PME cosmétiques dans la mise en conformité réglementaire de leurs produits, en Europe et à l'international.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.22 2.85 2 2 0 012.22.5h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8a16 16 0 006 6l.86-.86a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15.22v1.7z"/></svg>
+        Demander un audit gratuit
+      </a>
+      <a href="#services" class="btn-secondary">
+        Nos services <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visual fade-up delay-2">
+    <div class="hero-card-main">
+      <div class="card-header">
+        <img src="image/logo3.png" alt="Logo Hemen Expertise" class="card-logo-mini" style="object-fit: contain;">
+        <div class="card-header-text">
+          <h3>Tableau de bord conformité</h3>
+          <p>Hemen Expertise</p>
+        </div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="number">5<span>+</span></div>
+          <div class="label">Réglementations maîtrisées</div>
+        </div>
+        <div class="stat-box">
+          <div class="number">100<span>%</span></div>
+          <div class="label">Taux de conformité</div>
+        </div>
+      </div>
+      <ul class="checklist">
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8572A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Dossier Information Produit (DIP)
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8572A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Notification CPNP
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8572A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Évaluation sécurité (RSPE)
+        </li>
+        <li>
+          <div class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#B8572A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Audit & veille réglementaire
+        </li>
+      </ul>
+    </div>
+    <div class="floating-badge">
+      <div class="fb-num">72h</div>
+      <div style="font-size:11px;opacity:.8;margin-top:4px">Premier retour garanti</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div id="stats-bar">
+  <div class="stat-item fade-up">
+    <div class="big-num">100<sup>%</sup></div>
+    <div class="stat-label">Dossiers conformes</div>
+  </div>
+  <div class="stat-item fade-up delay-1">
+    <div class="big-num">EU</div>
+    <div class="stat-label">Réglementation 1223/2009</div>
+  </div>
+  <div class="stat-item fade-up delay-2">
+    <div class="big-num">72h</div>
+    <div class="stat-label">Réponse initiale</div>
+  </div>
+  <div class="stat-item fade-up delay-3">
+    <div class="big-num">5<sup>+</sup></div>
+    <div class="stat-label">Années d'expertise</div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div>
+    <p class="section-eyebrow fade-up">Le défi réglementaire</p>
+    <h2 class="fade-up">La conformité cosmétique,<br>un <em>labyrinthe</em> pour les marques</h2>
+    <p class="section-intro fade-up delay-1">Le règlement européen est complexe, évolutif et exigeant. Sans accompagnement expert, chaque erreur peut bloquer votre mise sur le marché.</p>
+    <a href="#services" class="btn-primary fade-up delay-2" style="display:inline-flex;gap:8px;align-items:center;">
+      Découvrir nos solutions
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+  </div>
+  <div class="problem-visual">
+    <div class="p-card fade-up">
+      <div class="p-card-icon navy">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div>
+        <h4>Dossier incomplet ou non conforme</h4>
+        <p>Un DIP manquant ou mal constitué peut entraîner des injonctions de la DGCCRF et le retrait du produit du marché.</p>
+      </div>
+    </div>
+    <div class="p-card fade-up delay-1">
+      <div class="p-card-icon terra">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#B8572A" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div>
+        <h4>Mise sur le marché retardée</h4>
+        <p>Sans notification CPNP valide, votre produit ne peut légalement être commercialisé en Europe.</p>
+      </div>
+    </div>
+    <div class="p-card fade-up delay-2">
+      <div class="p-card-icon slate">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A6880" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h4>Responsabilité de la Personne Responsable</h4>
+        <p>Toute infraction engage directement votre responsabilité juridique et celle de votre entreprise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <p class="section-eyebrow fade-up">Nos prestations</p>
+  <h2 class="fade-up">Un accompagnement <em>complet</em>,<br>du concept au marché</h2>
+  <p class="section-intro fade-up delay-1">Chaque prestation est conçue pour couvrir l'ensemble des exigences du Règlement (CE) n°1223/2009 et vous offrir une conformité sans stress.</p>
+
+  <div class="services-grid">
+    <div class="service-card light fade-up">
+      <span class="service-num">01</span>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <h3>Dossier Information Produit (DIP)</h3>
+      <p>Constitution complète de votre DIP conforme au règlement européen : description, méthode de fabrication, données de sécurité, réclamations et DEES.</p>
+      <span class="service-tag">Obligatoire EU</span>
+    </div>
+
+    <div class="service-card dark fade-up delay-1">
+      <span class="service-num">02</span>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h3>Notification CPNP</h3>
+      <p>Notification sur le portail européen CPNP avant mise sur le marché. Gestion des mises à jour et des langues requises par pays.</p>
+      <span class="service-tag">Mise sur le marché</span>
+    </div>
+
+    <div class="service-card featured fade-up delay-2">
+      <span class="service-num">03</span>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      </div>
+      <h3>Évaluation de la Sécurité (RSPE)</h3>
+      <p>Rapport de Sécurité du Produit Cosmétique réalisé par un évaluateur qualifié. Analyse toxicologique, évaluation de l'innocuité et conformité Annexes.</p>
+      <span class="service-tag">Cœur de conformité</span>
+    </div>
+
+    <div class="service-card light fade-up delay-1">
+      <span class="service-num">04</span>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <h3>Conseil & Audit Réglementaire</h3>
+      <p>Audit de votre portefeuille produits, identification des non-conformités et feuille de route personnalisée pour votre mise en conformité.</p>
+      <span class="service-tag">Sur-mesure</span>
+    </div>
+
+    <div class="service-card light fade-up delay-2">
+      <span class="service-num">05</span>
+      <div class="service-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+      </div>
+      <h3>Veille Réglementaire</h3>
+      <p>Abonnement mensuel à notre service de veille : nouvelles substances réglementées, évolutions des Annexes, actualités DGCCRF et SCCS.</p>
+      <span class="service-tag">Mensuel</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <p class="section-eyebrow fade-up">Pourquoi choisir Hemen</p>
+  <h2 class="fade-up">L'expertise au service<br>de <em>votre croissance</em></h2>
+  <p class="section-intro fade-up delay-1">Nous ne sommes pas un cabinet généraliste. Nous sommes des spécialistes 100% cosmétique, à votre service.</p>
+
+  <div class="why-grid fade-up delay-2">
+    <div class="why-item">
+      <div class="wi-num">01</div>
+      <h4>Expertise 100% cosmétique</h4>
+      <p>Notre activité est entièrement dédiée à la réglementation cosmétique européenne. Pas de polyvalence qui dilue l'expertise : vous avez en face de vous un spécialiste de votre secteur.</p>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">02</div>
+      <h4>Approche pédagogique</h4>
+      <p>Nous ne vous livrons pas des dossiers sans explication. Nous vous formons à comprendre vos obligations pour que vous soyez autonomes à terme.</p>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">03</div>
+      <h4>Réactivité garantie</h4>
+      <p>Premier retour sous 72h, respect des délais convenus. Parce que votre lancement ne peut pas attendre, nous nous engageons sur des calendriers tenus.</p>
+    </div>
+    <div class="why-item">
+      <div class="wi-num">04</div>
+      <h4>Tarifs adaptés aux PME</h4>
+      <p>Nos forfaits sont conçus pour les startups et PME cosmétiques. Pas de tarifs grands groupes pour des structures qui construisent encore leur avenir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <p class="section-eyebrow fade-up" style="text-align:center;">Notre approche</p>
+  <h2 class="fade-up" style="text-align:center;max-width:500px;margin:0 auto 16px;">Un process <em>clair</em> en 4 étapes</h2>
+  <p class="section-intro fade-up delay-1" style="text-align:center;margin:0 auto 80px;">De votre première demande à la mise sur le marché, nous vous accompagnons à chaque étape.</p>
+
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="step-circle">1</div>
+      <h4>Diagnostic gratuit</h4>
+      <p>Analyse de vos besoins et identification des obligations réglementaires applicables à vos produits.</p>
+    </div>
+    <div class="process-step fade-up delay-1">
+      <div class="step-circle">2</div>
+      <h4>Proposition & devis</h4>
+      <p>Proposition sur-mesure avec un calendrier précis et un budget transparent, sans surprise.</p>
+    </div>
+    <div class="process-step fade-up delay-2">
+      <div class="step-circle">3</div>
+      <h4>Mise en conformité</h4>
+      <p>Constitution des dossiers, rédaction des évaluations, notifications CPNP, avec suivi à chaque étape.</p>
+    </div>
+    <div class="process-step fade-up delay-3">
+      <div class="step-circle">4</div>
+      <h4>Suivi & veille</h4>
+      <p>Mise à jour continue de vos dossiers et alertes réglementaires pour rester conforme dans la durée.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRÉSENTATION -->
+<section id="presentation">
+  <p class="section-eyebrow fade-up">À propos</p>
+  <h2 class="fade-up">L'expert derrière <em>Hemen Expertise</em></h2>
+  <p class="section-intro fade-up delay-1">Toxicologue diplômée depuis 2021, j’ai forgé mon regard et ma rigueur au sein de plusieurs groupes et acteurs clés de l’industrie cosmétique. Ces années d'immersion m'ont permis de maîtriser les exigences des plus grands, tout en identifiant le besoin crucial d'accompagnement des structures plus agiles.  Aujourd’hui, avec Hemen Expertise, je mets cette expérience de terrain au service des startups et PME. Mon approche ? Sortir de la simple exécution technique pour vous offrir une véritable partenaire réglementaire. Je ne me contente pas de valider vos dossiers ; je vous transmets les clés pour comprendre vos enjeux de sécurité et transformer la conformité en un levier de sérénité.</p>
+</section>
+
+<!-- CLIENTS CIBLES -->
+<section id="clients">
+  <p class="section-eyebrow fade-up">Qui nous accompagnons</p>
+  <h2 class="fade-up">Conçu pour <em>vous</em></h2>
+  <p class="section-intro fade-up delay-1">Nos services sont spécifiquement adaptés aux besoins et aux budgets des structures en développement.</p>
+
+  <div class="clients-grid">
+    <div class="client-card highlight fade-up">
+      <div class="client-icon terra">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#B8572A" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div>
+        <h3>Startups & Jeunes Marques</h3>
+        <p>Vous lancez votre première gamme cosmétique et la réglementation vous semble une montagne ? Nous la rendons accessible.</p>
+        <ul>
+          <li>Accompagnement de A à Z pour votre premier produit</li>
+          <li>Explication pédagogique de vos obligations</li>
+          <li>Forfaits adaptés aux budgets startup</li>
+          <li>Délais courts pour ne pas bloquer votre lancement</li>
+        </ul>
+      </div>
+    </div>
+    <div class="client-card fade-up delay-1">
+      <div class="client-icon navy">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <div>
+        <h3>PME Cosmétiques</h3>
+        <p>Vous avez une gamme existante et souhaitez sécuriser votre conformité, anticiper les contrôles ou vous développer à l'international.</p>
+        <ul>
+          <li>Audit de votre portefeuille produits existant</li>
+          <li>Mise à jour des dossiers suite à reformulation</li>
+          <li>Extension à de nouveaux marchés européens</li>
+          <li>Veille réglementaire continue</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info fade-up">
+    <p class="section-eyebrow">Contact</p>
+    <h3>Parlons de<br><em style="font-style:italic;color:var(--terra);">votre projet</em></h3>
+    <p>Chaque produit cosmétique est unique. Décrivez-nous votre projet et nous vous recontactons sous 72h avec une première analyse.</p>
+
+    <div class="contact-detail">
+      <div class="cd-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8572A" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div class="cd-text">
+        <strong>Email</strong>
+        <span>contact@hemen-expertise.fr</span>
+      </div>
+    </div>
+
+    <div class="promise-box">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8A87C" stroke-width="2" style="flex-shrink:0;margin-top:2px"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      <p><strong>Notre engagement :</strong> Premier retour sous 72h ouvrées, devis détaillé sans engagement et diagnostic initial offert pour tout nouveau projet.</p>
+    </div>
+  </div>
+
+  <div class="contact-form-wrap fade-up delay-2">
+    <h3>Demande de contact</h3>
+    <div class="form-row form-row-2">
+      <div class="form-row">
+        <label>Prénom</label>
+        <input type="text" placeholder="Marie">
+      </div>
+      <div class="form-row">
+        <label>Nom</label>
+        <input type="text" placeholder="Dupont">
+      </div>
+    </div>
+    <div class="form-row">
+      <label>Email professionnel</label>
+      <input type="email" placeholder="marie@mamarque.fr">
+    </div>
+    <div class="form-row">
+      <label>Votre structure</label>
+      <input type="text" placeholder="Nom de votre marque ou entreprise">
+    </div>
+    <div class="form-row">
+      <label>Besoin principal</label>
+      <select>
+        <option value="">— Sélectionnez —</option>
+        <option>Dossier Information Produit (DIP)</option>
+        <option>Notification CPNP</option>
+        <option>Évaluation de sécurité (RSPE)</option>
+        <option>Audit réglementaire complet</option>
+        <option>Veille réglementaire</option>
+        <option>Je ne sais pas encore</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label>Votre message</label>
+      <textarea placeholder="Décrivez brièvement votre projet, vos produits et vos délais…"></textarea>
+    </div>
+    <button class="submit-btn" onclick="this.textContent='Message envoyé ✓'; this.style.background='#2A5A3B'">
+      Envoyer ma demande
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="image/logo3.png" alt="Logo Hemen Expertise" style="height: 36px; width: auto; object-fit: contain;">
+        <div style="line-height:1;">
+          <div style="font-weight:600;font-size:16px;color:white;letter-spacing:0.04em;">HEMEN</div>
+          <div style="font-size:9px;letter-spacing:0.2em;color:var(--terra-pale);text-transform:uppercase;">Expertise</div>
+        </div>
+      </div>
+      <p class="tagline">Votre partenaire réglementaire pour une mise sur le marché sereine et conforme.</p>
+    </div>
+    <div class="footer-links-col">
+      <h5>Services</h5>
+      <a href="#services">Dossier DIP</a>
+      <a href="#services">Notification CPNP</a>
+      <a href="#services">Évaluation sécurité</a>
+      <a href="#services">Audit réglementaire</a>
+      <a href="#services">Veille réglementaire</a>
+    </div>
+    <div class="footer-links-col">
+      <h5>Navigation</h5>
+      <a href="#why">Pourquoi nous</a>
+      <a href="#process">Notre approche</a>
+      <a href="#clients">Qui nous accompagnons</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Hemen Expertise — Tous droits réservés</span>
+    <span>Réglementation cosmétique · Règlement (CE) n°1223/2009</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
